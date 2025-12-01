@@ -4,7 +4,7 @@ title:      周记 				# 标题
 subtitle:   本周概要        #副标题
 date:       2025-12-1				# 时间
 author:     XL 						# 作者
-header-img: img/0.png	#这篇文章标题背景图片
+header-img: img/post-bg-universe.jpg	#这篇文章标题背景图片
 catalog: true 						# 是否归档
 tags:								#标签
     - 生活

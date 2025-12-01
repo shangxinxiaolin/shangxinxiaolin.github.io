@@ -10,7 +10,8 @@ layout: default
 <style type="text/css">
     header.intro-header{
         position: relative;
-        background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')
+        /* 统一使用站点配置中的星空背景图 */
+        background-image: url('{{ site.baseurl }}/{{ site.header-img }}')
     }
 
     {% if page.header-mask %}
