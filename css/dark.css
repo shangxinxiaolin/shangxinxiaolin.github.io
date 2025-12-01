@@ -1,191 +1,268 @@
-/* Dark theme overrides for XL Blog */
+/* Dark & ACG (二次元) theme overrides for XL Blog */
 
+/* ========== 基础背景与整体氛围 ========== */
 body {
-  background-color: #0d1117;
-  color: #e6edf3;
+  /* 深邃黑色星空背景（更接近纯黑夜） */
+  background:
+    radial-gradient(circle at 10% 20%, rgba(60, 140, 255, 0.12) 0, transparent 40%),
+    radial-gradient(circle at 80% 10%, rgba(90, 160, 255, 0.15) 0, transparent 45%),
+    radial-gradient(circle at 20% 80%, rgba(60, 100, 220, 0.12) 0, transparent 40%),
+    #01030a;
+  color: #eaf2ff;
 }
 
-/* Global text & links */
+/* 卡片式布局：正文+侧边栏 */
+.post-container,
+.sidebar-container {
+  background: rgba(1, 3, 12, 0.96);
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
+}
+
+/* ========== 全局文字与链接（霓虹主色：星空蓝 + 冰蓝） ========== */
 a {
-  color: #e6edf3;
+  color: #9fd6ff;
+  text-decoration: none;
+  transition: color 0.2s ease, text-shadow 0.2s ease, transform 0.15s ease;
 }
 
 a:hover,
 a:focus {
-  color: #58a6ff;
+  color: #bfe5ff;
+  text-shadow: 0 0 4px rgba(191, 229, 255, 0.8);
 }
 
 .post-container a {
-  color: #58a6ff;
+  color: #9fd6ff;
 }
 
 .post-container a:hover,
 .post-container a:focus {
-  color: #79c0ff;
+  color: #d5e6ff;
 }
 
-/* Navigation bar */
+/* ========== 导航栏：上方淡发光条 ========== */
 .navbar-custom {
   font-family: inherit;
+  background: linear-gradient(to right, rgba(40, 110, 255, 0.4), rgba(40, 180, 255, 0.15));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .navbar-custom .navbar-brand {
-  color: #f0f6fc;
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(120, 190, 255, 0.7);
 }
 
 .navbar-custom .navbar-brand:hover,
 .navbar-custom .navbar-brand:focus {
-  color: #c9d1d9;
+  color: #e3f1ff;
 }
 
 .navbar-custom .nav li a {
-  color: #f0f6fc;
+  color: #eaf2ff;
 }
 
 .navbar-custom .nav li a:hover,
 .navbar-custom .nav li a:focus {
-  color: #c9d1d9;
+  color: #c7e4ff;
+  text-shadow: 0 0 6px rgba(120, 190, 255, 0.8);
 }
 
 @media only screen and (min-width: 1170px) {
   .navbar-custom.is-fixed {
-    background-color: rgba(13, 17, 23, 0.95);
-    border-bottom: 1px solid #30363d;
+    background: rgba(2, 5, 21, 0.96);
+    border-bottom: 1px solid rgba(120, 190, 255, 0.45);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
   }
 
   .navbar-custom.is-fixed .navbar-brand {
-    color: #f0f6fc;
+    color: #ffffff;
   }
 
   .navbar-custom.is-fixed .navbar-brand:hover,
   .navbar-custom.is-fixed .navbar-brand:focus {
-    color: #58a6ff;
+    color: #d2e7ff;
   }
 
   .navbar-custom.is-fixed .nav li a {
-    color: #f0f6fc;
+    color: #eaf2ff;
   }
 
   .navbar-custom.is-fixed .nav li a:hover,
   .navbar-custom.is-fixed .nav li a:focus {
-    color: #58a6ff;
+    color: #bfe5ff;
   }
 }
 
-/* Main layout blocks */
-.post-container,
-.sidebar-container {
-  background-color: #0d1117;
+/* 顶部大图区域：加上 ACG 感渐变遮罩 */
+.intro-header {
+  position: relative;
 }
 
-.sidebar-container {
-  color: #8b949e;
+.intro-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 10% 0, rgba(120, 190, 255, 0.55), transparent 55%),
+              radial-gradient(circle at 80% 0, rgba(40, 120, 255, 0.45), transparent 55%),
+              linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.7));
+  mix-blend-mode: soft-light;
+  pointer-events: none;
 }
 
-.sidebar-container h5,
-.sidebar-container h5 a {
-  color: #c9d1d9 !important;
+.intro-header .site-heading,
+.intro-header .post-heading,
+.intro-header .page-heading {
+  position: relative;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.55);
 }
 
-.sidebar-container a {
-  color: #8b949e !important;
-}
-
-.sidebar-container a:hover,
-.sidebar-container a:active {
-  color: #58a6ff !important;
-}
-
-/* Headings & paragraphs */
+/* ========== 文字与标题 ========== */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  color: #e6edf3;
+  color: #ffffff;
 }
 
 .post-preview > a > .post-title,
 .post-preview > a > .post-subtitle {
-  color: #e6edf3;
+  color: #ffffff;
 }
 
 .post-preview > .post-meta {
-  color: #8b949e;
+  color: #a5b4ff;
 }
 
 .post-content-preview {
-  color: #8b949e;
+  color: #b0b8ff;
 }
 
 blockquote {
-  color: #8b949e;
-  background-color: #161b22;
-  border-left: 4px solid #30363d;
+  color: #d4dcff;
+  background: linear-gradient(135deg, rgba(180, 120, 255, 0.18), rgba(90, 120, 255, 0.18));
+  border-left: 4px solid rgba(245, 176, 255, 0.85);
+  border-radius: 10px;
 }
 
-/* Footer */
+/* ========== 侧边栏 & 标签（圆角徽章 + 霓虹描边） ========== */
+.sidebar-container {
+  color: #c5cff8;
+}
+
+.sidebar-container h5,
+.sidebar-container h5 a {
+  color: #ffffff !important;
+}
+
+.sidebar-container a {
+  color: #c5cff8 !important;
+}
+
+.sidebar-container a:hover,
+.sidebar-container a:active {
+  color: #f5b0ff !important;
+}
+
+.tags a,
+.tags .tag {
+  border-radius: 999px;
+  border: 1px solid rgba(245, 176, 255, 0.9);
+  background: radial-gradient(circle at 0 0, rgba(245, 176, 255, 0.3), rgba(144, 224, 255, 0.1));
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(245, 176, 255, 0.8);
+}
+
+.tags a:hover,
+.tags .tag:hover,
+.tags a:active,
+.tags .tag:active {
+  background: radial-gradient(circle at 100% 0, rgba(144, 224, 255, 0.45), rgba(245, 176, 255, 0.25));
+  box-shadow: 0 0 16px rgba(144, 224, 255, 0.95);
+}
+
+#tag_cloud a,
+#tag_cloud .tag {
+  background: rgba(15, 18, 40, 0.9);
+  color: #eaf2ff;
+  border-radius: 999px;
+  border: 1px solid rgba(144, 224, 255, 0.7);
+}
+
+#tag_cloud a:hover,
+#tag_cloud .tag:hover,
+#tag_cloud a:active,
+#tag_cloud .tag:active {
+  background: linear-gradient(135deg, #f5b0ff, #90e0ff) !important;
+  color: #050712;
+}
+
+/* ========== 底部区域 ========== */
 footer {
-  color: #8b949e;
+  color: #a5b4ff;
 }
 
 footer .copyright {
-  color: #8b949e;
+  color: #a5b4ff;
 }
 
 footer .copyright a {
-  color: #58a6ff;
+  color: #f5b0ff;
 }
 
 footer .copyright a:hover,
 footer .copyright a:focus {
-  color: #79c0ff;
+  color: #90e0ff;
 }
 
-/* Buttons & pager */
+/* ========== 按钮 & 翻页：ACG 霓虹按钮 ========== */
 .btn-default {
-  background-color: #21262d;
-  border-color: #30363d;
-  color: #e6edf3;
+  background: linear-gradient(135deg, #f5b0ff, #90e0ff);
+  border: none;
+  color: #050712;
+  box-shadow: 0 10px 22px rgba(245, 176, 255, 0.4);
 }
 
 .btn-default:hover,
 .btn-default:focus {
-  background-color: #238636;
-  border-color: #2ea043;
-  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(144, 224, 255, 0.6);
+  color: #050712;
 }
 
 .pager li > a,
 .pager li > span {
-  background-color: #161b22;
-  border-color: #30363d;
-  color: #e6edf3;
+  background: rgba(15, 18, 40, 0.95);
+  border-radius: 999px;
+  border: 1px solid rgba(144, 224, 255, 0.6);
+  color: #eaf2ff;
 }
 
 .pager li > a:hover,
 .pager li > a:focus {
-  background-color: #238636;
-  border-color: #2ea043;
-  color: #ffffff;
+  background: linear-gradient(135deg, #f5b0ff, #90e0ff);
+  color: #050712;
+  box-shadow: 0 10px 22px rgba(144, 224, 255, 0.7);
 }
 
 .pager .disabled > a,
 .pager .disabled > a:hover,
 .pager .disabled > a:focus,
 .pager .disabled > span {
-  background-color: #0d1117;
+  background-color: rgba(5, 7, 18, 0.9);
   color: #6e7681;
 }
 
-/* Code blocks & syntax highlighting (dark) */
+/* ========== 代码块 & 高亮：柔和赛博风 ========== */
 .highlight pre,
 pre,
 .highlight .hll {
-  background-color: #161b22;
-  border: 1px solid #30363d;
-  color: #e6edf3;
+  background: radial-gradient(circle at 0 0, rgba(245, 176, 255, 0.16), rgba(5, 7, 18, 0.95));
+  border: 1px solid rgba(144, 224, 255, 0.4);
+  color: #eaf2ff;
 }
 
 .highlight .c,
@@ -193,7 +270,7 @@ pre,
 .highlight .cp,
 .highlight .c1,
 .highlight .cs {
-  color: #8b949e;
+  color: #9aa4d9;
 }
 
 .highlight .k,
@@ -203,11 +280,11 @@ pre,
 .highlight .kn,
 .highlight .kp,
 .highlight .kr {
-  color: #ff7b72;
+  color: #ff99aa;
 }
 
 .highlight .kt {
-  color: #79c0ff;
+  color: #b3e5ff;
 }
 
 .highlight .n,
@@ -220,7 +297,7 @@ pre,
 .highlight .nt,
 .highlight .nv,
 .highlight .w {
-  color: #e6edf3;
+  color: #ffffff;
 }
 
 .highlight .s,
@@ -235,7 +312,7 @@ pre,
 .highlight .sr,
 .highlight .s1,
 .highlight .ss {
-  color: #a5d6ff;
+  color: #b3e5ff;
 }
 
 .highlight .m,
@@ -244,23 +321,24 @@ pre,
 .highlight .mi,
 .highlight .mo,
 .highlight .il {
-  color: #79c0ff;
+  color: #f5b0ff;
 }
 
 .highlight .err {
-  color: #f85149;
+  color: #ff8fa3;
   background-color: transparent;
 }
 
-/* Selection color */
+/* ========== 选区高亮 ========== */
 ::selection {
-  color: #ffffff;
-  background: #1f6feb;
+  color: #050712;
+  background: rgba(245, 176, 255, 0.85);
 }
 
 ::-moz-selection {
-  color: #ffffff;
-  background: #1f6feb;
+  color: #050712;
+  background: rgba(245, 176, 255, 0.85);
 }
+
 
 
