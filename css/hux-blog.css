@@ -1045,6 +1045,123 @@ img::-moz-selection {
 #ds-smilies-tooltip ul.ds-smilies-tabs li a {
   background: white !important;
 }
+/* Hux customize Style for Disqus - 增强输入框可见性 */
+.comment #disqus_thread #dsq-content #dsq-input {
+  border: 2px solid #0085a1 !important;
+  background-color: #f8f9fa !important;
+  color: #404040 !important;
+  padding: 10px !important;
+  border-radius: 4px !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+.comment #disqus_thread #dsq-content #dsq-input:focus {
+  border-color: #0085a1 !important;
+  box-shadow: 0 0 8px rgba(0, 133, 161, 0.4) !important;
+  outline: none !important;
+  background-color: #ffffff !important;
+}
+.comment #disqus_thread textarea {
+  border: 2px solid #0085a1 !important;
+  background-color: #f8f9fa !important;
+  color: #404040 !important;
+  padding: 10px !important;
+  border-radius: 4px !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+.comment #disqus_thread textarea:focus {
+  border-color: #0085a1 !important;
+  box-shadow: 0 0 8px rgba(0, 133, 161, 0.4) !important;
+  outline: none !important;
+  background-color: #ffffff !important;
+}
+.comment #disqus_thread input[type="text"],
+.comment #disqus_thread input[type="email"],
+.comment #disqus_thread input[type="url"] {
+  border: 2px solid #0085a1 !important;
+  background-color: #f8f9fa !important;
+  color: #404040 !important;
+  padding: 8px 10px !important;
+  border-radius: 4px !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+.comment #disqus_thread input[type="text"]:focus,
+.comment #disqus_thread input[type="email"]:focus,
+.comment #disqus_thread input[type="url"]:focus {
+  border-color: #0085a1 !important;
+  box-shadow: 0 0 8px rgba(0, 133, 161, 0.4) !important;
+  outline: none !important;
+  background-color: #ffffff !important;
+}
+/* Hux customize Style for Gitalk - 增强输入框可见性 */
+#gitalk-container .gt-header-textarea {
+  border: 2px solid #0085a1 !important;
+  background-color: #f8f9fa !important;
+  color: #404040 !important;
+  padding: 12px !important;
+  border-radius: 4px !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+  min-height: 120px !important;
+}
+#gitalk-container .gt-header-textarea:focus {
+  border-color: #0085a1 !important;
+  box-shadow: 0 0 8px rgba(0, 133, 161, 0.4) !important;
+  outline: none !important;
+  background-color: #ffffff !important;
+}
+#gitalk-container .gt-header-preview {
+  border: 2px solid #0085a1 !important;
+  background-color: #f8f9fa !important;
+  color: #404040 !important;
+  padding: 12px !important;
+  border-radius: 4px !important;
+  min-height: 120px !important;
+}
+#gitalk-container .gt-header-input {
+  border: 2px solid #0085a1 !important;
+  background-color: #f8f9fa !important;
+  color: #404040 !important;
+  padding: 8px 10px !important;
+  border-radius: 4px !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+#gitalk-container .gt-header-input:focus {
+  border-color: #0085a1 !important;
+  box-shadow: 0 0 8px rgba(0, 133, 161, 0.4) !important;
+  outline: none !important;
+  background-color: #ffffff !important;
+}
+#gitalk-container textarea {
+  border: 2px solid #0085a1 !important;
+  background-color: #f8f9fa !important;
+  color: #404040 !important;
+  padding: 12px !important;
+  border-radius: 4px !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+#gitalk-container textarea:focus {
+  border-color: #0085a1 !important;
+  box-shadow: 0 0 8px rgba(0, 133, 161, 0.4) !important;
+  outline: none !important;
+  background-color: #ffffff !important;
+}
+#gitalk-container input[type="text"],
+#gitalk-container input[type="email"],
+#gitalk-container input[type="url"] {
+  border: 2px solid #0085a1 !important;
+  background-color: #f8f9fa !important;
+  color: #404040 !important;
+  padding: 8px 10px !important;
+  border-radius: 4px !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+#gitalk-container input[type="text"]:focus,
+#gitalk-container input[type="email"]:focus,
+#gitalk-container input[type="url"]:focus {
+  border-color: #0085a1 !important;
+  box-shadow: 0 0 8px rgba(0, 133, 161, 0.4) !important;
+  outline: none !important;
+  background-color: #ffffff !important;
+}
 .page-fullscreen .intro-header {
   position: fixed;
   left: 0;

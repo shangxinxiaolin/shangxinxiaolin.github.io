@@ -340,5 +340,111 @@ pre,
   background: rgba(245, 176, 255, 0.85);
 }
 
+/* ========== 评论输入框样式增强（暗色主题） ========== */
+/* Gitalk 评论输入框 */
+#gitalk-container .gt-header-textarea {
+  border: 2px solid #90e0ff !important;
+  background-color: rgba(15, 18, 40, 0.95) !important;
+  color: #eaf2ff !important;
+  padding: 12px !important;
+  border-radius: 4px !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+  min-height: 120px !important;
+}
+#gitalk-container .gt-header-textarea:focus {
+  border-color: #f5b0ff !important;
+  box-shadow: 0 0 12px rgba(245, 176, 255, 0.6) !important;
+  outline: none !important;
+  background-color: rgba(5, 7, 18, 0.98) !important;
+}
+#gitalk-container .gt-header-preview {
+  border: 2px solid #90e0ff !important;
+  background-color: rgba(15, 18, 40, 0.95) !important;
+  color: #eaf2ff !important;
+  padding: 12px !important;
+  border-radius: 4px !important;
+  min-height: 120px !important;
+}
+#gitalk-container .gt-header-input {
+  border: 2px solid #90e0ff !important;
+  background-color: rgba(15, 18, 40, 0.95) !important;
+  color: #eaf2ff !important;
+  padding: 8px 10px !important;
+  border-radius: 4px !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+#gitalk-container .gt-header-input:focus {
+  border-color: #f5b0ff !important;
+  box-shadow: 0 0 12px rgba(245, 176, 255, 0.6) !important;
+  outline: none !important;
+  background-color: rgba(5, 7, 18, 0.98) !important;
+}
+#gitalk-container textarea {
+  border: 2px solid #90e0ff !important;
+  background-color: rgba(15, 18, 40, 0.95) !important;
+  color: #eaf2ff !important;
+  padding: 12px !important;
+  border-radius: 4px !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+#gitalk-container textarea:focus {
+  border-color: #f5b0ff !important;
+  box-shadow: 0 0 12px rgba(245, 176, 255, 0.6) !important;
+  outline: none !important;
+  background-color: rgba(5, 7, 18, 0.98) !important;
+}
+#gitalk-container input[type="text"],
+#gitalk-container input[type="email"],
+#gitalk-container input[type="url"] {
+  border: 2px solid #90e0ff !important;
+  background-color: rgba(15, 18, 40, 0.95) !important;
+  color: #eaf2ff !important;
+  padding: 8px 10px !important;
+  border-radius: 4px !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+#gitalk-container input[type="text"]:focus,
+#gitalk-container input[type="email"]:focus,
+#gitalk-container input[type="url"]:focus {
+  border-color: #f5b0ff !important;
+  box-shadow: 0 0 12px rgba(245, 176, 255, 0.6) !important;
+  outline: none !important;
+  background-color: rgba(5, 7, 18, 0.98) !important;
+}
+
+/* Disqus 评论输入框 */
+.comment #disqus_thread textarea {
+  border: 2px solid #90e0ff !important;
+  background-color: rgba(15, 18, 40, 0.95) !important;
+  color: #eaf2ff !important;
+  padding: 10px !important;
+  border-radius: 4px !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+.comment #disqus_thread textarea:focus {
+  border-color: #f5b0ff !important;
+  box-shadow: 0 0 12px rgba(245, 176, 255, 0.6) !important;
+  outline: none !important;
+  background-color: rgba(5, 7, 18, 0.98) !important;
+}
+.comment #disqus_thread input[type="text"],
+.comment #disqus_thread input[type="email"],
+.comment #disqus_thread input[type="url"] {
+  border: 2px solid #90e0ff !important;
+  background-color: rgba(15, 18, 40, 0.95) !important;
+  color: #eaf2ff !important;
+  padding: 8px 10px !important;
+  border-radius: 4px !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+.comment #disqus_thread input[type="text"]:focus,
+.comment #disqus_thread input[type="email"]:focus,
+.comment #disqus_thread input[type="url"]:focus {
+  border-color: #f5b0ff !important;
+  box-shadow: 0 0 12px rgba(245, 176, 255, 0.6) !important;
+  outline: none !important;
+  background-color: rgba(5, 7, 18, 0.98) !important;
+}
+
 
 
