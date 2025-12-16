@@ -1,12 +1,12 @@
 ---
-layout:     post   				    # 使用的布局（不需要改）
-title:      周记 				# 标题 
-subtitle:   本周概要        #副标题
-date:       2025-12-1				# 时间
-author:     XL 						# 作者
-header-img: img/post-bg-universe.jpg	#这篇文章标题背景图片
-catalog: true 						# 是否归档
-tags:								#标签
+layout:     post                    # 使用的布局（不需要改）
+title:      周记                    # 标题
+subtitle:   本周概要                # 副标题
+date:       2025-12-01              # 时间（标准日期格式）
+author:     XL                      # 作者
+header-img: img/post-bg-universe.jpg # 这篇文章标题背景图片
+catalog:    true                    # 是否归档
+tags:                               # 标签
     - 生活
     - 大一
 ---
@@ -27,3 +27,5 @@ tags:								#标签
 考试，然后大概一周也就过去了，感觉效率有点低，就效仿一下一位我的学长，看看能不能用周记这种方式逼
 自己做一点事情，当然也有好多曲折，比如中间捣鼓了一下怎么给Ubuntu装chinese keyboard之类的，在这
 就不一一赘述了。
+
+
