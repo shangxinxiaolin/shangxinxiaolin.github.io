@@ -38,11 +38,15 @@
                         </ul>
                     </li>
                     {% endif %}
-                    {% for page in site.pages %}{% if page.title %}
-                    <li>
-                        <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-                    </li>
-                    {% endif %}{% endfor %}
+                    {% for page in site.pages %}
+                        {% if page.title and page.layout != 'category' %}
+                            {% unless page.url contains '/categories/' %}
+                            <li>
+                                <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+                            </li>
+                            {% endunless %}
+                        {% endif %}
+                    {% endfor %}
                 </ul>
             </div>
         </div>
