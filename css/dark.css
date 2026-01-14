@@ -1428,7 +1428,7 @@ input:focus, textarea:focus, select:focus {
   padding: 25px;
   transition: all 0.3s ease;
   position: relative;
-  overflow: hidden;
+  overflow: visible !important; /* 改为visible确保文字不被裁剪 */
   box-shadow: 
     0 0 20px rgba(0, 0, 0, 0.5),
     inset 0 0 20px rgba(255, 255, 255, 0.02);
@@ -1447,6 +1447,8 @@ input:focus, textarea:focus, select:focus {
     transparent
   );
   transition: left 0.5s ease;
+  z-index: 0; /* 确保在文字下方 */
+  pointer-events: none; /* 不阻挡点击 */
 }
 
 .category-card:hover {
@@ -1466,34 +1468,51 @@ input:focus, textarea:focus, select:focus {
   text-decoration: none;
   color: #ffffff !important;
   display: block;
+  position: relative;
+  z-index: 1; /* 确保在::before上方 */
 }
 
-/* 确保分类卡片内的所有文字都是白色 */
+/* 确保分类卡片内的所有文字都是白色 - 最高优先级 */
+.container .category-card a *,
+.container .category-card a h3,
+.container .category-card a p,
+.container .category-card a span,
 .category-card a *,
 .category-card a h3,
 .category-card a p,
 .category-card a span {
   color: #ffffff !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /* 分类卡片中的分类名称 - 最高优先级 */
+.container .category-card h3.category-name,
+.container .categories-grid .category-card h3.category-name,
 .category-card h3.category-name,
 .category-card .category-name,
 .categories-grid .category-card .category-name,
 .categories-grid .category-card h3,
+.container h3.category-name,
 .category-name {
   color: #ffffff !important;
   font-size: 24px !important;
   font-weight: 700 !important;
   margin: 0 0 10px 0 !important;
   padding: 0 !important;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5) !important;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8) !important;
   transition: all 0.3s ease;
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
   line-height: 1.4 !important;
   text-align: left !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 30px !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  white-space: normal !important;
 }
 
 .category-card:hover .category-name {
