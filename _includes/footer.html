@@ -118,9 +118,38 @@
     function initDropdown() {
         if (typeof jQuery !== 'undefined' && typeof jQuery.fn.dropdown !== 'undefined') {
             // 确保下拉菜单点击事件正常工作
-            jQuery(document).on('click.bs.dropdown.data-api', '.dropdown-toggle[data-toggle="dropdown"]', function(e) {
-                // 阻止事件冒泡到自定义导航栏关闭逻辑
+            // 为下拉菜单按钮添加点击事件处理
+            jQuery('.dropdown-toggle[data-toggle="dropdown"]').on('click', function(e) {
+                e.preventDefault();
                 e.stopPropagation();
+                
+                var $this = jQuery(this);
+                var $parent = $this.closest('.dropdown');
+                
+                if ($parent.length) {
+                    var isOpen = $parent.hasClass('open');
+                    
+                    // 关闭所有其他下拉菜单
+                    jQuery('.dropdown.open').not($parent).removeClass('open').find('.dropdown-menu').hide();
+                    
+                    // 切换当前下拉菜单
+                    if (isOpen) {
+                        $parent.removeClass('open');
+                        $parent.find('.dropdown-menu').slideUp(200);
+                    } else {
+                        $parent.addClass('open');
+                        $parent.find('.dropdown-menu').slideDown(200);
+                    }
+                }
+                
+                return false;
+            });
+            
+            // 点击外部关闭下拉菜单
+            jQuery(document).on('click', function(e) {
+                if (!jQuery(e.target).closest('.dropdown').length) {
+                    jQuery('.dropdown.open').removeClass('open').find('.dropdown-menu').slideUp(200);
+                }
             });
         } else {
             // 如果还没加载，稍后再试
@@ -130,9 +159,11 @@
     
     // 页面加载完成后初始化
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initDropdown);
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(initDropdown, 300);
+        });
     } else {
-        initDropdown();
+        setTimeout(initDropdown, 300);
     }
 })();
 </script>

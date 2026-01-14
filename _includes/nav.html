@@ -104,7 +104,7 @@
         if(e.target == $toggle) return;
         if(e.target.className == 'icon-bar') return;
         
-        // 排除下拉菜单相关的点击事件
+        // 排除下拉菜单相关的点击事件 - 使用更精确的检测
         var $target = e.target;
         var isDropdownRelated = false;
         
@@ -117,7 +117,8 @@
                 if (element.classList.contains('dropdown') || 
                     element.classList.contains('dropdown-menu') ||
                     element.classList.contains('dropdown-toggle') ||
-                    element.classList.contains('caret')) {
+                    element.classList.contains('caret') ||
+                    element.tagName === 'SPAN' && element.parentElement && element.parentElement.classList.contains('dropdown-toggle')) {
                     return true;
                 }
             }
@@ -130,9 +131,12 @@
             return false;
         }
         
-        // 使用closest方法（现代浏览器）
+        // 使用closest方法（现代浏览器）- 更全面的检查
         if($target.closest) {
-            if($target.closest('.dropdown') || $target.closest('.dropdown-menu')) {
+            var dropdownParent = $target.closest('.dropdown');
+            var dropdownMenu = $target.closest('.dropdown-menu');
+            var dropdownToggle = $target.closest('.dropdown-toggle');
+            if(dropdownParent || dropdownMenu || dropdownToggle) {
                 isDropdownRelated = true;
             }
         }
@@ -148,5 +152,5 @@
         }
         
         __HuxNav__.close();
-    })
+    }, true) // 使用捕获阶段，让Bootstrap的事件先处理
 </script>
