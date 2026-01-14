@@ -1653,6 +1653,13 @@ input:focus, textarea:focus, select:focus {
   margin-bottom: 20px;
 }
 
+/* 确保分类列表容器可见 */
+.sidebar-container .sidebar-categories,
+.sidebar-container .category-list {
+  display: block !important;
+  visibility: visible !important;
+}
+
 .category-list {
   list-style: none;
   padding: 0;
@@ -1682,8 +1689,41 @@ input:focus, textarea:focus, select:focus {
   min-height: 40px;
 }
 
-.sidebar-container .category-link-item * {
+/* 强制覆盖所有子元素的颜色 - 最高优先级 */
+.sidebar-container .category-list .category-item .category-link-item,
+.sidebar-container .category-list .category-item .category-link-item *,
+.sidebar-container .category-list .category-item .category-link-item span,
+.sidebar-container .category-list .category-item .category-link-item .category-name,
+.sidebar-container .category-list .category-item .category-link-item .category-count,
+.sidebar-container .category-link-item,
+.sidebar-container .category-link-item *,
+.sidebar-container .category-link-item span,
+.sidebar-container .category-link-item .category-name,
+.sidebar-container .category-link-item .category-count {
   color: #ffffff !important;
+}
+
+/* 特别针对分类名称 - 使用最高优先级选择器 */
+.sidebar-container .sidebar-categories .category-list .category-item .category-link-item .category-name,
+.sidebar-container .category-list li a span.category-name,
+.sidebar-container .category-list .category-link-item .category-name,
+.sidebar-container span.category-name,
+.category-list .category-link-item .category-name,
+span.category-name {
+  color: #ffffff !important;
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5) !important;
+  width: auto !important;
+  height: auto !important;
+  min-width: 1px !important;
+  min-height: 1px !important;
+  overflow: visible !important;
+  text-indent: 0 !important;
+  letter-spacing: normal !important;
 }
 
 .category-link-item::before {
@@ -1710,28 +1750,37 @@ input:focus, textarea:focus, select:focus {
   transform: scaleY(1);
 }
 
+/* 分类名称样式 - 使用最高优先级 */
+.sidebar-container .category-list .category-link-item .category-name,
 .sidebar-container .category-name,
+.category-list .category-link-item .category-name,
 .category-name {
-  font-weight: 500;
-  flex: 1;
+  font-weight: 500 !important;
+  flex: 1 !important;
   color: #ffffff !important;
   display: inline-block !important;
   visibility: visible !important;
   opacity: 1 !important;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3) !important;
   font-size: 14px !important;
   line-height: 1.5 !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
 }
 
+.sidebar-container .category-count,
 .category-count {
   color: rgba(255, 255, 255, 0.7) !important;
-  font-size: 12px;
-  margin-left: 8px;
-  padding: 2px 8px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  font-size: 12px !important;
+  margin-left: 8px !important;
+  padding: 2px 8px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 10px !important;
   transition: all 0.3s ease;
-  white-space: nowrap;
+  white-space: nowrap !important;
+  display: inline-block !important;
+  visibility: visible !important;
 }
 
 .category-link-item:hover .category-count {
