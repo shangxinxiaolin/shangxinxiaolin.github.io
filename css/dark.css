@@ -420,7 +420,7 @@ a:hover::after {
 
 .navbar-custom .nav li a:hover,
 .navbar-custom .nav li a:focus {
-  color: #ffffff;
+    color: #ffffff;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
 }
 
@@ -1648,32 +1648,80 @@ input:focus, textarea:focus, select:focus {
   letter-spacing: 1px;
 }
 
-/* 分类快速链接样式 */
-.category-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 10px;
+/* 侧边栏分类列表样式 */
+.sidebar-categories {
+  margin-bottom: 20px;
 }
 
-.category-link {
-  display: inline-block;
-  padding: 6px 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
+.category-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+.category-item {
+  margin-bottom: 8px;
+  padding: 0;
+}
+
+.category-link-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
   color: var(--text-main);
   text-decoration: none;
-  font-size: 13px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-link-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.category-link-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  transform: translateX(5px);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.category-link-item:hover::before {
+  transform: scaleY(1);
+}
+
+.category-name {
+  font-weight: 500;
+  flex: 1;
+}
+
+.category-count {
+  color: var(--text-muted);
+  font-size: 12px;
+  margin-left: 8px;
+  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
   transition: all 0.3s ease;
 }
 
-.category-link:hover {
+.category-link-item:hover .category-count {
+  color: rgba(255, 255, 255, 0.8);
   background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 /* 文章元数据样式改进 */

@@ -22,22 +22,9 @@
                     <li>
                         <a href="{{ site.baseurl }}/">博客</a>
                     </li>
-                    {% if site.categories %}
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            分类 <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ site.baseurl }}/categories">所有分类</a></li>
-                            <li role="separator" class="divider"></li>
-                            {% for category in site.categories %}
-                            <li>
-                                <a href="{{ site.baseurl }}/categories/{{ category.slug }}">{{ category.name }}</a>
-                            </li>
-                            {% endfor %}
-                        </ul>
+                    <li>
+                        <a href="{{ site.baseurl }}/categories">分类</a>
                     </li>
-                    {% endif %}
                     {% for page in site.pages %}
                         {% if page.title and page.layout != 'category' %}
                             {% unless page.url contains '/categories/' %}
