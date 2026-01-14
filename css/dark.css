@@ -1669,15 +1669,16 @@ input:focus, textarea:focus, select:focus {
   justify-content: space-between;
   align-items: center;
   padding: 10px 15px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 6px;
-  color: var(--text-main);
+  color: #ffffff !important;
   text-decoration: none;
   font-size: 14px;
   transition: all 0.3s ease;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  min-height: 40px;
 }
 
 .category-link-item::before {
@@ -1707,16 +1708,20 @@ input:focus, textarea:focus, select:focus {
 .category-name {
   font-weight: 500;
   flex: 1;
+  color: #ffffff !important;
+  display: inline-block;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
 
 .category-count {
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.7) !important;
   font-size: 12px;
   margin-left: 8px;
   padding: 2px 8px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .category-link-item:hover .category-count {
