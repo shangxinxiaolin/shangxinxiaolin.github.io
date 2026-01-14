@@ -3,7 +3,43 @@ layout: page
 description: "Thinking will not overcome fear but action will."
 ---
 
-{% for post in paginator.posts %}
+<!-- 置顶文章区域 -->
+{% assign all_posts = paginator.posts | sort: "date" | reverse %}
+{% assign pinned_posts = all_posts | where: "top", true %}
+{% if pinned_posts.size > 0 %}
+<div class="pinned-posts-section">
+    <h3 class="section-title">📌 置顶文章</h3>
+    {% for post in pinned_posts %}
+    <div class="post-preview pinned-post">
+        <a href="{{ post.url | prepend: site.baseurl }}">
+            <h2 class="post-title">
+                <span class="pinned-badge">置顶</span>
+                {{ post.title }}
+            </h2>
+            {% if post.subtitle %}
+            <h3 class="post-subtitle">
+                {{ post.subtitle }}
+            </h3>
+            {% endif %}
+            <div class="post-content-preview">
+                {{ post.content | strip_html | truncate:200 }}
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+        </p>
+    </div>
+    <hr>
+    {% endfor %}
+</div>
+{% endif %}
+
+<!-- 普通文章区域 - 按时间降序（排除置顶文章） -->
+{% assign normal_posts = all_posts | where: "top", false %}
+{% if normal_posts.size == 0 %}
+    {% assign normal_posts = all_posts %}
+{% endif %}
+{% for post in normal_posts %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
         <h2 class="post-title">

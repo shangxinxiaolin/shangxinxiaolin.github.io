@@ -32,6 +32,25 @@ layout: default
                 col-md-10 col-md-offset-1
                 sidebar-container">
 
+                <!-- 文章导航栏 -->
+                <section>
+                    <h5><a href="{{ site.baseurl }}/">📚 最近文章</a></h5>
+                    <ul class="recent-posts-list">
+                        {% assign recent_posts = site.posts | sort: "date" | reverse | limit: 10 %}
+                        {% for post in recent_posts %}
+                        <li>
+                            <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
+                                {% if post.top %}
+                                <span class="post-nav-badge">置顶</span>
+                                {% endif %}
+                                {{ post.title }}
+                                <span class="post-nav-date">{{ post.date | date: "%m-%d" }}</span>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </section>
+
                 <!-- Featured Tags -->
                 {% if site.featured-tags %}
                 <section>
@@ -81,6 +100,26 @@ layout: default
                 col-xs-12
                 sidebar-container
             ">
+                <!-- 文章导航栏 -->
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="{{ site.baseurl }}/">📚 最近文章</a></h5>
+                    <ul class="recent-posts-list">
+                        {% assign recent_posts = site.posts | sort: "date" | reverse | limit: 10 %}
+                        {% for post in recent_posts %}
+                        <li>
+                            <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
+                                {% if post.top %}
+                                <span class="post-nav-badge">置顶</span>
+                                {% endif %}
+                                {{ post.title }}
+                                <span class="post-nav-date">{{ post.date | date: "%m-%d" }}</span>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </section>
+
                 <!-- Featured Tags -->
                 {% if site.featured-tags %}
                 <section>

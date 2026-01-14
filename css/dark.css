@@ -1299,6 +1299,120 @@ input:focus, textarea:focus, select:focus {
   background: transparent !important;
 }
 
+/* 置顶文章样式 */
+.pinned-posts-section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  letter-spacing: 1px;
+}
+
+.pinned-post {
+  position: relative;
+  border-left: 3px solid rgba(255, 255, 255, 0.5);
+  padding-left: 15px;
+  margin-left: 5px;
+}
+
+.pinned-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-right: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  animation: badge-pulse 2s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  }
+}
+
+.pinned-post .post-title {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* 文章导航栏样式 */
+.recent-posts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recent-posts-list li {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.recent-posts-list li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.recent-posts-list li:hover {
+  transform: translateX(5px);
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+.recent-posts-list a {
+  color: var(--text-main);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  line-height: 1.6;
+}
+
+.recent-posts-list a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+.post-nav-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 6px;
+  font-weight: 600;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+}
+
+.post-nav-date {
+  color: var(--text-muted);
+  font-size: 12px;
+  margin-left: auto;
+  padding-left: 10px;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.recent-posts-list a:hover .post-nav-date {
+  color: rgba(255, 255, 255, 0.7);
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;

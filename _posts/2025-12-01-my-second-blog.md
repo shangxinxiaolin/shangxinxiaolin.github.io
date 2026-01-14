@@ -6,6 +6,7 @@ date:       2025-12-01              # 时间（标准日期格式）
 author:     XL                      # 作者
 header-img: img/post-bg-universe.jpg # 这篇文章标题背景图片
 catalog:    true                    # 是否归档
+top:        true                    # 是否置顶（true为置顶）
 tags:                               # 标签
     - 生活
     - 大一
