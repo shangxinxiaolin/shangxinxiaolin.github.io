@@ -100,6 +100,41 @@ layout: default
                 col-xs-12
                 sidebar-container
             ">
+                <!-- 站点概览 -->
+                <section class="site-overview">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>站点概览</h5>
+                    <div class="site-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">{{ site.posts.size }}</span>
+                            <span class="stat-label">文章</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">{% if site.categories %}{{ site.categories.size }}{% else %}0{% endif %}</span>
+                            <span class="stat-label">分类</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">{{ site.tags.size }}</span>
+                            <span class="stat-label">标签</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 分类快速链接 -->
+                {% if site.categories %}
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>分类</h5>
+                    <div class="category-links">
+                        {% for category in site.categories %}
+                        <a href="{{ site.baseurl }}/categories/{{ category.slug }}" class="category-link">
+                            {{ category.name }}
+                        </a>
+                        {% endfor %}
+                    </div>
+                </section>
+                {% endif %}
+
                 <!-- 文章导航栏 -->
                 <section>
                     <hr class="hidden-sm hidden-xs">
