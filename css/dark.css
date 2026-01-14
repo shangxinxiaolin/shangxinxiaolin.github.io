@@ -1664,8 +1664,9 @@ input:focus, textarea:focus, select:focus {
   padding: 0;
 }
 
+.sidebar-container .category-link-item,
 .category-link-item {
-  display: flex;
+  display: flex !important;
   justify-content: space-between;
   align-items: center;
   padding: 10px 15px;
@@ -1679,6 +1680,10 @@ input:focus, textarea:focus, select:focus {
   position: relative;
   overflow: visible;
   min-height: 40px;
+}
+
+.sidebar-container .category-link-item * {
+  color: #ffffff !important;
 }
 
 .category-link-item::before {
@@ -1705,12 +1710,17 @@ input:focus, textarea:focus, select:focus {
   transform: scaleY(1);
 }
 
+.sidebar-container .category-name,
 .category-name {
   font-weight: 500;
   flex: 1;
   color: #ffffff !important;
-  display: inline-block;
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  font-size: 14px !important;
+  line-height: 1.5 !important;
 }
 
 .category-count {
