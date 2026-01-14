@@ -99,34 +99,50 @@
     document.addEventListener('click', function(e){
         if(e.target == $toggle) return;
         if(e.target.className == 'icon-bar') return;
+        
         // 排除下拉菜单相关的点击事件
         var $target = e.target;
-        if($target.closest && ($target.closest('.dropdown') || $target.closest('.dropdown-menu'))) return;
-        // 兼容旧浏览器
-        var parent = $target.parentElement;
-        while(parent && parent !== document.body) {
-            if(parent.classList && (parent.classList.contains('dropdown') || parent.classList.contains('dropdown-menu'))) return;
-            parent = parent.parentElement;
+        var isDropdownRelated = false;
+        
+        // 检查是否点击在下拉菜单相关元素上
+        function checkDropdown(element) {
+            if (!element || element === document.body) return false;
+            
+            // 检查元素本身
+            if (element.classList) {
+                if (element.classList.contains('dropdown') || 
+                    element.classList.contains('dropdown-menu') ||
+                    element.classList.contains('dropdown-toggle') ||
+                    element.classList.contains('caret')) {
+                    return true;
+                }
+            }
+            
+            // 检查父元素
+            if (element.parentElement) {
+                return checkDropdown(element.parentElement);
+            }
+            
+            return false;
         }
+        
+        // 使用closest方法（现代浏览器）
+        if($target.closest) {
+            if($target.closest('.dropdown') || $target.closest('.dropdown-menu')) {
+                isDropdownRelated = true;
+            }
+        }
+        
+        // 兼容旧浏览器
+        if(!isDropdownRelated) {
+            isDropdownRelated = checkDropdown($target);
+        }
+        
+        // 如果是下拉菜单相关元素，不关闭导航栏，让Bootstrap处理
+        if(isDropdownRelated) {
+            return;
+        }
+        
         __HuxNav__.close();
     })
-    
-    // 确保Bootstrap下拉菜单正常工作
-    // 等待jQuery和Bootstrap加载完成
-    if (typeof jQuery !== 'undefined' && typeof jQuery.fn.dropdown !== 'undefined') {
-        // Bootstrap已加载，下拉菜单应该可以正常工作
-    } else {
-        // 如果Bootstrap还没加载，等待加载完成
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
-                // 确保下拉菜单功能可用
-                var dropdowns = document.querySelectorAll('.dropdown-toggle[data-toggle="dropdown"]');
-                dropdowns.forEach(function(dropdown) {
-                    if (typeof jQuery !== 'undefined' && typeof jQuery.fn.dropdown !== 'undefined') {
-                        jQuery(dropdown).dropdown();
-                    }
-                });
-            }, 100);
-        });
-    }
 </script>

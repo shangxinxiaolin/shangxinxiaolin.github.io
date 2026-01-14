@@ -111,6 +111,32 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="{{ "/js/bootstrap.min.js " | prepend: site.baseurl }}"></script>
 
+<!-- 确保下拉菜单正常工作 -->
+<script>
+(function() {
+    // 等待jQuery和Bootstrap加载完成
+    function initDropdown() {
+        if (typeof jQuery !== 'undefined' && typeof jQuery.fn.dropdown !== 'undefined') {
+            // 确保下拉菜单点击事件正常工作
+            jQuery(document).on('click.bs.dropdown.data-api', '.dropdown-toggle[data-toggle="dropdown"]', function(e) {
+                // 阻止事件冒泡到自定义导航栏关闭逻辑
+                e.stopPropagation();
+            });
+        } else {
+            // 如果还没加载，稍后再试
+            setTimeout(initDropdown, 100);
+        }
+    }
+    
+    // 页面加载完成后初始化
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initDropdown);
+    } else {
+        initDropdown();
+    }
+})();
+</script>
+
 <!-- Custom Theme JavaScript -->
 <script src="{{ "/js/hux-blog.min.js " | prepend: site.baseurl }}"></script>
 

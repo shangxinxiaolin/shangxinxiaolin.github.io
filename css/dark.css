@@ -1530,6 +1530,12 @@ input:focus, textarea:focus, select:focus {
   padding: 10px 0;
   margin-top: 10px;
   backdrop-filter: blur(20px);
+  display: none; /* 默认隐藏 */
+}
+
+/* Bootstrap下拉菜单打开状态 */
+.navbar-custom .dropdown.open > .dropdown-menu {
+  display: block !important;
 }
 
 .navbar-custom .dropdown-menu > li > a {
