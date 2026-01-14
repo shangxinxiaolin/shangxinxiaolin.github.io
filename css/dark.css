@@ -855,15 +855,16 @@ code {
 pre,
 .highlight pre,
 .highlight .hll {
-  background: rgba(5, 5, 10, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #b0b0b0;
+  background: rgba(5, 5, 10, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #b0b0b0 !important;
   box-shadow: 
     0 0 20px rgba(0, 0, 0, 0.8),
-    inset 0 0 20px rgba(255, 255, 255, 0.02);
+    inset 0 0 20px rgba(255, 255, 255, 0.02) !important;
   border-radius: 8px;
   position: relative;
   overflow: hidden;
+  padding: 12px 15px !important;
 }
 
 pre::before {
@@ -896,22 +897,62 @@ code {
   background: rgba(0, 0, 0, 0.3);
 }
 
-/* 代码块内的所有文字颜色 */
+/* 代码块内的所有文字颜色 - 强制覆盖所有可能的样式 */
 pre code,
 .highlight pre code,
 .highlight code,
 pre,
-.highlight pre {
+.highlight pre,
+.highlight pre code *,
+pre code *,
+.highlight pre *,
+pre * {
   color: #b0b0b0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
-/* 语法高亮颜色覆盖 - 让所有语法高亮颜色都更暗一些 */
+/* 确保代码块内所有span元素也可见 */
+.highlight pre code span,
+.highlight pre span,
+pre code span,
+pre span {
+  color: inherit !important;
+  background: transparent !important;
+}
+
+/* 确保代码块背景是暗色的 - 强制覆盖syntax.css */
+.highlight pre,
+pre,
+.highlight .hll {
+  background-color: rgba(5, 5, 10, 0.95) !important;
+  background: rgba(5, 5, 10, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #b0b0b0 !important;
+  padding: 15px !important;
+}
+
+/* 代码块内所有文字强制可见 */
+.highlight pre code,
+.highlight pre code *,
+pre code,
+pre code *,
+.highlight code,
+code {
+  color: #b0b0b0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* 语法高亮颜色覆盖 - 暗黑主题适配 */
 .highlight .c,
 .highlight .cm,
 .highlight .c1,
 .highlight .cs {
   color: #888888 !important;
   font-style: italic;
+  background: transparent !important;
 }
 
 .highlight .k,
@@ -923,6 +964,7 @@ pre,
 .highlight .kt {
   color: #a0a0a0 !important;
   font-weight: bold;
+  background: transparent !important;
 }
 
 .highlight .s,
@@ -938,6 +980,7 @@ pre,
 .highlight .s1,
 .highlight .ss {
   color: #c0c0c0 !important;
+  background: transparent !important;
 }
 
 .highlight .n,
@@ -948,8 +991,13 @@ pre,
 .highlight .ni,
 .highlight .nn,
 .highlight .nt,
-.highlight .nv {
+.highlight .nv,
+.highlight .bp,
+.highlight .vc,
+.highlight .vg,
+.highlight .vi {
   color: #b0b0b0 !important;
+  background: transparent !important;
 }
 
 .highlight .m,
@@ -959,19 +1007,79 @@ pre,
 .highlight .mo,
 .highlight .il {
   color: #a8a8a8 !important;
+  background: transparent !important;
 }
 
 .highlight .o {
   color: #999999 !important;
+  background: transparent !important;
 }
 
 .highlight .p {
   color: #b0b0b0 !important;
+  background: transparent !important;
 }
 
 .highlight .err {
   color: #ff6666 !important;
+  background: rgba(255, 0, 0, 0.15) !important;
+}
+
+.highlight .gd,
+.highlight .gd .x {
+  color: #ff8888 !important;
   background: rgba(255, 0, 0, 0.1) !important;
+}
+
+.highlight .gi,
+.highlight .gi .x {
+  color: #88ff88 !important;
+  background: rgba(0, 255, 0, 0.1) !important;
+}
+
+.highlight .gr {
+  color: #ff6666 !important;
+  background: transparent !important;
+}
+
+.highlight .gh {
+  color: #999999 !important;
+  background: transparent !important;
+}
+
+.highlight .go {
+  color: #888888 !important;
+  background: transparent !important;
+}
+
+.highlight .gp {
+  color: #aaaaaa !important;
+  background: transparent !important;
+}
+
+.highlight .gu {
+  color: #cc88cc !important;
+  background: transparent !important;
+}
+
+.highlight .gt {
+  color: #ff6666 !important;
+  background: transparent !important;
+}
+
+.highlight .cp {
+  color: #999999 !important;
+  background: transparent !important;
+}
+
+.highlight .w {
+  color: #b0b0b0 !important;
+  background: transparent !important;
+}
+
+.highlight .gc {
+  color: #999999 !important;
+  background: rgba(255, 255, 255, 0.05) !important;
 }
 
 ::selection {
@@ -1159,6 +1267,36 @@ input:focus, textarea:focus, select:focus {
     0 0 50px rgba(255, 255, 255, 0.1),
     inset 0 0 20px rgba(255, 255, 255, 0.1) !important;
   background-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+/* 最终强制覆盖 - 确保所有代码块文字可见 */
+.post-container .highlight pre,
+.post-container pre,
+.post-container code,
+.post-container .highlight code,
+.post-container .highlight pre code,
+.post-container .highlight pre code *,
+.post-container pre code,
+.post-container pre code * {
+  background-color: rgba(5, 5, 10, 0.95) !important;
+  background: rgba(5, 5, 10, 0.95) !important;
+  color: #b0b0b0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.post-container .highlight pre code,
+.post-container .highlight pre code *,
+.post-container pre code,
+.post-container pre code * {
+  color: #b0b0b0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* 覆盖所有语法高亮类的背景色 */
+.post-container .highlight * {
+  background-color: transparent !important;
+  background: transparent !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
