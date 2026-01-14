@@ -1,9 +1,9 @@
-/* High-tech starfield theme overrides */
+/* 浩瀚深空主题 - 极致深空感 */
 
 :root {
-  --bg-deep: #050506;
-  --bg-mid: #0b0c0f;
-  --bg-panel: rgba(10, 11, 13, 0.92);
+  --bg-deep: #000000;
+  --bg-mid: #050506;
+  --bg-panel: rgba(5, 6, 10, 0.85);
   --text-main: #e7e9ee;
   --text-muted: #9a9fa8;
   --accent: #cfd3da;
@@ -12,22 +12,25 @@
   --accent-rose: #b3b8c2;
   --accent-soft: rgba(207, 211, 218, 0.2);
   --border-glow: rgba(207, 211, 218, 0.28);
-  --shadow-deep: rgba(0, 0, 0, 0.55);
+  --shadow-deep: rgba(0, 0, 0, 0.8);
+  --star-color-1: rgba(255, 255, 255, 0.9);
+  --star-color-2: rgba(200, 220, 255, 0.8);
+  --star-color-3: rgba(255, 240, 200, 0.7);
+  --star-color-4: rgba(220, 200, 255, 0.6);
 }
 
 body {
   position: relative;
   color: var(--text-main);
-  background: 
-    radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%),
-    linear-gradient(180deg, #050506 0%, #0a0b0e 100%);
+  background: #000000;
   background-attachment: fixed;
   font-family: "Space Grotesk", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.2px;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* 动态星空背景 */
+/* 第一层：远景深空背景 - 银河系和星云 */
 body::before {
   content: "";
   position: fixed;
@@ -35,43 +38,155 @@ body::before {
   pointer-events: none;
   z-index: 0;
   background: 
-    radial-gradient(2px 2px at 20% 30%, rgba(207, 211, 218, 0.8), transparent),
-    radial-gradient(2px 2px at 60% 70%, rgba(207, 211, 218, 0.6), transparent),
-    radial-gradient(1px 1px at 50% 50%, rgba(207, 211, 218, 0.9), transparent),
-    radial-gradient(1px 1px at 80% 10%, rgba(207, 211, 218, 0.7), transparent),
-    radial-gradient(2px 2px at 90% 40%, rgba(207, 211, 218, 0.5), transparent),
-    radial-gradient(1px 1px at 33% 60%, rgba(207, 211, 218, 0.8), transparent),
-    radial-gradient(1px 1px at 55% 20%, rgba(207, 211, 218, 0.6), transparent),
-    radial-gradient(2px 2px at 10% 80%, rgba(207, 211, 218, 0.7), transparent),
-    radial-gradient(1px 1px at 75% 90%, rgba(207, 211, 218, 0.5), transparent),
-    radial-gradient(1px 1px at 15% 15%, rgba(207, 211, 218, 0.9), transparent);
-  background-size: 200% 200%;
-  background-position: 0% 0%;
-  animation: starfield 60s linear infinite;
-  opacity: 0.6;
+    /* 银河系主体 - 横跨屏幕的银河带 */
+    linear-gradient(180deg, 
+      transparent 0%,
+      rgba(60, 80, 120, 0.15) 20%,
+      rgba(100, 120, 180, 0.25) 35%,
+      rgba(80, 100, 160, 0.3) 50%,
+      rgba(100, 120, 180, 0.25) 65%,
+      rgba(60, 80, 120, 0.15) 80%,
+      transparent 100%
+    ),
+    /* 多彩星云 - 紫色星云 */
+    radial-gradient(ellipse 120% 60% at 15% 30%, 
+      rgba(120, 80, 180, 0.2) 0%, 
+      rgba(80, 60, 140, 0.15) 30%,
+      transparent 60%
+    ),
+    /* 蓝色星云 */
+    radial-gradient(ellipse 100% 80% at 85% 20%, 
+      rgba(60, 120, 200, 0.25) 0%, 
+      rgba(40, 80, 160, 0.18) 35%,
+      transparent 65%
+    ),
+    /* 粉紫色星云 */
+    radial-gradient(ellipse 90% 70% at 50% 70%, 
+      rgba(180, 100, 200, 0.18) 0%, 
+      rgba(140, 80, 160, 0.12) 40%,
+      transparent 70%
+    ),
+    /* 深蓝色星云 */
+    radial-gradient(ellipse 110% 90% at 30% 80%, 
+      rgba(40, 100, 180, 0.15) 0%, 
+      rgba(20, 60, 140, 0.1) 50%,
+      transparent 75%
+    ),
+    /* 基础深空渐变 */
+    radial-gradient(ellipse at center, 
+      rgba(10, 15, 30, 0.3) 0%, 
+      rgba(5, 8, 15, 0.5) 40%,
+      #000000 100%
+    );
+  animation: nebula-drift 80s ease-in-out infinite;
+  opacity: 1;
 }
 
+/* 第二层：密集星空 - 远景星星 */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: 
-    radial-gradient(circle at 10% 20%, rgba(60, 140, 255, 0.15) 0, transparent 50%),
-    radial-gradient(circle at 80% 10%, rgba(90, 160, 255, 0.12) 0, transparent 50%),
-    radial-gradient(circle at 20% 80%, rgba(60, 100, 220, 0.1) 0, transparent 50%),
-    radial-gradient(circle at 90% 60%, rgba(100, 150, 255, 0.08) 0, transparent 50%);
-  animation: nebula-drift 40s ease-in-out infinite;
-  opacity: 0.4;
+  background-image: 
+    /* 大量小星星 - 远景层 */
+    radial-gradient(1px 1px at 5% 10%, var(--star-color-1), transparent),
+    radial-gradient(1px 1px at 15% 25%, var(--star-color-2), transparent),
+    radial-gradient(1px 1px at 25% 40%, var(--star-color-1), transparent),
+    radial-gradient(1px 1px at 35% 15%, var(--star-color-3), transparent),
+    radial-gradient(1px 1px at 45% 55%, var(--star-color-1), transparent),
+    radial-gradient(1px 1px at 55% 30%, var(--star-color-2), transparent),
+    radial-gradient(1px 1px at 65% 70%, var(--star-color-1), transparent),
+    radial-gradient(1px 1px at 75% 45%, var(--star-color-4), transparent),
+    radial-gradient(1px 1px at 85% 20%, var(--star-color-1), transparent),
+    radial-gradient(1px 1px at 95% 60%, var(--star-color-2), transparent),
+    /* 更多星星 */
+    radial-gradient(1px 1px at 8% 50%, var(--star-color-1), transparent),
+    radial-gradient(1px 1px at 18% 75%, var(--star-color-3), transparent),
+    radial-gradient(1px 1px at 28% 20%, var(--star-color-1), transparent),
+    radial-gradient(1px 1px at 38% 65%, var(--star-color-2), transparent),
+    radial-gradient(1px 1px at 48% 35%, var(--star-color-1), transparent),
+    radial-gradient(1px 1px at 58% 80%, var(--star-color-4), transparent),
+    radial-gradient(1px 1px at 68% 25%, var(--star-color-1), transparent),
+    radial-gradient(1px 1px at 78% 55%, var(--star-color-2), transparent),
+    radial-gradient(1px 1px at 88% 15%, var(--star-color-3), transparent),
+    radial-gradient(1px 1px at 98% 40%, var(--star-color-1), transparent),
+    /* 继续添加更多星星 */
+    radial-gradient(1px 1px at 12% 30%, var(--star-color-2), transparent),
+    radial-gradient(1px 1px at 22% 60%, var(--star-color-1), transparent),
+    radial-gradient(1px 1px at 32% 10%, var(--star-color-4), transparent),
+    radial-gradient(1px 1px at 42% 45%, var(--star-color-1), transparent),
+    radial-gradient(1px 1px at 52% 75%, var(--star-color-3), transparent),
+    radial-gradient(1px 1px at 62% 35%, var(--star-color-1), transparent),
+    radial-gradient(1px 1px at 72% 65%, var(--star-color-2), transparent),
+    radial-gradient(1px 1px at 82% 25%, var(--star-color-1), transparent),
+    radial-gradient(1px 1px at 92% 50%, var(--star-color-4), transparent),
+    /* 中景星星 - 稍大一些 */
+    radial-gradient(1.5px 1.5px at 10% 20%, var(--star-color-1), transparent),
+    radial-gradient(1.5px 1.5px at 30% 50%, var(--star-color-2), transparent),
+    radial-gradient(1.5px 1.5px at 50% 10%, var(--star-color-1), transparent),
+    radial-gradient(1.5px 1.5px at 70% 60%, var(--star-color-3), transparent),
+    radial-gradient(1.5px 1.5px at 90% 30%, var(--star-color-1), transparent),
+    /* 近景亮星 - 更大更亮 */
+    radial-gradient(2px 2px at 20% 40%, var(--star-color-1), transparent),
+    radial-gradient(2px 2px at 40% 70%, var(--star-color-2), transparent),
+    radial-gradient(2px 2px at 60% 25%, var(--star-color-1), transparent),
+    radial-gradient(2px 2px at 80% 55%, var(--star-color-3), transparent);
+  background-size: 100% 100%;
+  background-position: 0% 0%;
+  animation: starfield-drift 120s linear infinite;
+  opacity: 0.8;
 }
 
-@keyframes starfield {
+/* 第三层：闪烁星星效果 - 通过伪元素创建 */
+body {
+  position: relative;
+}
+
+body::after {
+  animation: starfield-drift 120s linear infinite, twinkle 4s ease-in-out infinite;
+}
+
+@keyframes starfield-drift {
   0% {
     background-position: 0% 0%;
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-5px, 10px, 0);
   }
   100% {
     background-position: 100% 100%;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes nebula-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+  }
+  33% {
+    transform: translate3d(-20px, 15px, 0) scale(1.02);
+    opacity: 0.95;
+  }
+  66% {
+    transform: translate3d(15px, -10px, 0) scale(0.98);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
   }
 }
 
@@ -88,6 +203,7 @@ h5,
 h6 {
   color: #f4f6f9;
   letter-spacing: 0.4px;
+  text-shadow: 0 0 10px rgba(207, 211, 218, 0.3);
 }
 
 a {
@@ -99,19 +215,19 @@ a {
 a:hover,
 a:focus {
   color: #f1f3f7;
-  text-shadow: 0 0 8px rgba(207, 211, 218, 0.45);
+  text-shadow: 0 0 12px rgba(207, 211, 218, 0.6), 0 0 20px rgba(100, 150, 255, 0.4);
 }
 
 .post-container,
 .sidebar-container {
   background: var(--bg-panel);
   border-radius: 18px;
-  border: 1px solid rgba(207, 211, 218, 0.15);
+  border: 1px solid rgba(207, 211, 218, 0.12);
   box-shadow: 
-    0 20px 50px var(--shadow-deep),
-    0 0 0 1px rgba(207, 211, 218, 0.05) inset,
-    0 0 30px rgba(207, 211, 218, 0.1);
-  backdrop-filter: blur(14px);
+    0 20px 60px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(207, 211, 218, 0.08) inset,
+    0 0 40px rgba(100, 150, 255, 0.15);
+  backdrop-filter: blur(16px);
   animation: rise-in 600ms ease both;
   position: relative;
   overflow: hidden;
@@ -128,10 +244,10 @@ a:focus {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(207, 211, 218, 0.03),
+    rgba(100, 150, 255, 0.05),
     transparent
   );
-  animation: shimmer 3s infinite;
+  animation: shimmer 4s infinite;
   pointer-events: none;
 }
 
@@ -147,7 +263,7 @@ a:focus {
 @keyframes rise-in {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -155,39 +271,16 @@ a:focus {
   }
 }
 
-@keyframes twinkle {
-  0%,
-  100% {
-    opacity: 0.55;
-    transform: translateY(0);
-  }
-  50% {
-    opacity: 0.25;
-    transform: translateY(-8px);
-  }
-}
-
-@keyframes nebula-drift {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(-12px, 16px, 0);
-  }
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
 .navbar-custom {
-  background: linear-gradient(90deg, rgba(10, 11, 13, 0.78), rgba(10, 11, 13, 0.3));
-  border-bottom: 1px solid rgba(207, 211, 218, 0.18);
-  backdrop-filter: blur(10px);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.85), rgba(5, 6, 10, 0.6));
+  border-bottom: 1px solid rgba(207, 211, 218, 0.15);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .navbar-custom .navbar-brand {
   color: #f4f6f9;
-  text-shadow: 0 0 12px rgba(207, 211, 218, 0.35);
+  text-shadow: 0 0 15px rgba(207, 211, 218, 0.5), 0 0 25px rgba(100, 150, 255, 0.3);
 }
 
 .navbar-custom .nav li a {
@@ -197,14 +290,14 @@ a:focus {
 .navbar-custom .nav li a:hover,
 .navbar-custom .nav li a:focus {
   color: #f1f3f7;
-  text-shadow: 0 0 6px rgba(207, 211, 218, 0.45);
+  text-shadow: 0 0 8px rgba(207, 211, 218, 0.6), 0 0 15px rgba(100, 150, 255, 0.4);
 }
 
 @media only screen and (min-width: 1170px) {
   .navbar-custom.is-fixed {
-    background: rgba(9, 10, 12, 0.92);
+    background: rgba(0, 0, 0, 0.9);
     border-bottom: 1px solid var(--border-glow);
-    box-shadow: 0 16px 35px var(--shadow-deep);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.8);
   }
 
   .navbar-custom.is-fixed .navbar-brand,
@@ -215,6 +308,7 @@ a:focus {
 
 .intro-header {
   position: relative;
+  overflow: hidden;
 }
 
 .intro-header::before {
@@ -222,24 +316,61 @@ a:focus {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 20% 10%, rgba(100, 150, 255, 0.25), transparent 58%),
-    radial-gradient(circle at 75% 0, rgba(60, 140, 255, 0.2), transparent 62%),
-    radial-gradient(circle at 80% 90%, rgba(90, 160, 255, 0.18), transparent 60%),
-    radial-gradient(circle at 50% 50%, rgba(207, 211, 218, 0.15), transparent 70%),
-    linear-gradient(180deg, rgba(8, 9, 11, 0.4), rgba(8, 9, 11, 0.92));
+    /* 银河系光带 */
+    linear-gradient(180deg, 
+      transparent 0%,
+      rgba(80, 100, 160, 0.3) 25%,
+      rgba(120, 140, 200, 0.4) 50%,
+      rgba(80, 100, 160, 0.3) 75%,
+      transparent 100%
+    ),
+    /* 星云效果 */
+    radial-gradient(ellipse 150% 100% at 20% 30%, 
+      rgba(120, 80, 180, 0.3) 0%, 
+      rgba(80, 60, 140, 0.2) 40%,
+      transparent 70%
+    ),
+    radial-gradient(ellipse 120% 90% at 80% 20%, 
+      rgba(60, 120, 200, 0.35) 0%, 
+      rgba(40, 80, 160, 0.25) 45%,
+      transparent 75%
+    ),
+    radial-gradient(ellipse 100% 80% at 50% 70%, 
+      rgba(180, 100, 200, 0.25) 0%, 
+      rgba(140, 80, 160, 0.15) 50%,
+      transparent 80%
+    ),
+    /* 深空渐变 */
+    linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.85));
   pointer-events: none;
-  animation: nebula-drift 30s ease-in-out infinite;
+  animation: nebula-drift 50s ease-in-out infinite;
+  z-index: 0;
+}
+
+.intro-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(2px 2px at 30% 40%, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(1.5px 1.5px at 60% 60%, rgba(200, 220, 255, 0.8), transparent),
+    radial-gradient(2px 2px at 80% 30%, rgba(255, 240, 200, 0.7), transparent);
+  background-size: 100% 100%;
+  animation: twinkle 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .intro-header .site-heading,
 .intro-header .post-heading,
 .intro-header .page-heading {
   position: relative;
-  text-shadow: 0 0 18px rgba(6, 20, 40, 0.8);
+  z-index: 1;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.9), 0 0 30px rgba(207, 211, 218, 0.4);
 }
 
 .intro-header h1 {
-  text-shadow: 0 0 18px rgba(207, 211, 218, 0.35);
+  text-shadow: 0 0 25px rgba(207, 211, 218, 0.5), 0 0 40px rgba(100, 150, 255, 0.3);
 }
 
 .post-preview > a > .post-title,
@@ -254,20 +385,21 @@ a:focus {
 
 blockquote {
   color: #d8dce3;
-  background: linear-gradient(135deg, rgba(207, 211, 218, 0.12), rgba(120, 126, 136, 0.12));
+  background: linear-gradient(135deg, rgba(207, 211, 218, 0.1), rgba(100, 150, 255, 0.08));
   border-left: 4px solid var(--accent-strong);
   border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .tags a,
 .tags .tag {
   border-radius: 999px;
   border: 1px solid var(--border-glow);
-  background: rgba(12, 13, 15, 0.92);
+  background: rgba(5, 6, 10, 0.9);
   color: #e7e9ee;
   box-shadow: 
-    0 0 12px rgba(207, 211, 218, 0.3),
-    0 0 6px rgba(100, 150, 255, 0.2) inset;
+    0 0 15px rgba(207, 211, 218, 0.3),
+    0 0 8px rgba(100, 150, 255, 0.2) inset;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -282,7 +414,7 @@ blockquote {
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: rgba(207, 211, 218, 0.2);
+  background: rgba(100, 150, 255, 0.3);
   transform: translate(-50%, -50%);
   transition: width 0.6s ease, height 0.6s ease;
 }
@@ -292,11 +424,11 @@ blockquote {
 .tags a:active,
 .tags .tag:active {
   background: linear-gradient(135deg, rgba(207, 211, 218, 0.95), rgba(140, 146, 156, 0.95));
-  color: #0b0c0f;
+  color: #000000;
   box-shadow: 
-    0 0 20px rgba(207, 211, 218, 0.8),
-    0 0 40px rgba(100, 150, 255, 0.4),
-    0 0 6px rgba(100, 150, 255, 0.3) inset;
+    0 0 25px rgba(207, 211, 218, 0.9),
+    0 0 50px rgba(100, 150, 255, 0.5),
+    0 0 8px rgba(100, 150, 255, 0.4) inset;
   transform: translateY(-2px);
 }
 
@@ -308,7 +440,7 @@ blockquote {
 
 #tag_cloud a,
 #tag_cloud .tag {
-  background: rgba(14, 15, 18, 0.95);
+  background: rgba(5, 6, 10, 0.95);
   color: #e7e9ee;
   border-radius: 999px;
   border: 1px solid rgba(207, 211, 218, 0.3);
@@ -319,7 +451,7 @@ blockquote {
 #tag_cloud a:active,
 #tag_cloud .tag:active {
   background: linear-gradient(135deg, #cfd3da, #8f959f) !important;
-  color: #0b0c0f;
+  color: #000000;
 }
 
 footer {
@@ -333,25 +465,26 @@ footer .copyright a {
 footer .copyright a:hover,
 footer .copyright a:focus {
   color: #f1f3f7;
+  text-shadow: 0 0 10px rgba(207, 211, 218, 0.6);
 }
 
 .btn-default {
   background: linear-gradient(135deg, #cfd3da, #8f959f);
   border: none;
-  color: #0b0c0f;
-  box-shadow: 0 12px 26px rgba(143, 149, 159, 0.35);
+  color: #000000;
+  box-shadow: 0 12px 30px rgba(143, 149, 159, 0.4);
 }
 
 .btn-default:hover,
 .btn-default:focus {
   transform: translateY(-1px);
-  box-shadow: 0 16px 32px rgba(207, 211, 218, 0.45);
-  color: #0b0c0f;
+  box-shadow: 0 16px 40px rgba(207, 211, 218, 0.6);
+  color: #000000;
 }
 
 .pager li > a,
 .pager li > span {
-  background: rgba(14, 15, 18, 0.95);
+  background: rgba(5, 6, 10, 0.95);
   border-radius: 999px;
   border: 1px solid rgba(207, 211, 218, 0.3);
   color: #e7e9ee;
@@ -360,15 +493,15 @@ footer .copyright a:focus {
 .pager li > a:hover,
 .pager li > a:focus {
   background: linear-gradient(135deg, #cfd3da, #8f959f);
-  color: #0b0c0f;
-  box-shadow: 0 10px 22px rgba(207, 211, 218, 0.5);
+  color: #000000;
+  box-shadow: 0 10px 25px rgba(207, 211, 218, 0.6);
 }
 
 .pager .disabled > a,
 .pager .disabled > a:hover,
 .pager .disabled > a:focus,
 .pager .disabled > span {
-  background-color: rgba(10, 11, 13, 0.9);
+  background-color: rgba(0, 0, 0, 0.9);
   color: #6f757f;
 }
 
@@ -382,18 +515,19 @@ code {
 pre,
 .highlight pre,
 .highlight .hll {
-  background: radial-gradient(circle at 0 0, rgba(207, 211, 218, 0.12), rgba(9, 10, 12, 0.96));
+  background: radial-gradient(circle at 0 0, rgba(207, 211, 218, 0.1), rgba(0, 0, 0, 0.98));
   border: 1px solid rgba(207, 211, 218, 0.25);
   color: #e7e9ee;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
 }
 
 ::selection {
-  color: #0b0c0f;
+  color: #000000;
   background: rgba(207, 211, 218, 0.85);
 }
 
 ::-moz-selection {
-  color: #0b0c0f;
+  color: #000000;
   background: rgba(207, 211, 218, 0.85);
 }
 
@@ -402,19 +536,19 @@ pre,
   border-radius: 50%;
   border: 3px solid rgba(207, 211, 218, 0.3);
   box-shadow: 
-    0 0 20px rgba(207, 211, 218, 0.4),
-    0 0 40px rgba(100, 150, 255, 0.2),
+    0 0 25px rgba(207, 211, 218, 0.5),
+    0 0 50px rgba(100, 150, 255, 0.3),
     0 0 0 1px rgba(207, 211, 218, 0.1) inset;
   transition: all 0.4s ease;
-  background: rgba(12, 13, 15, 0.5);
+  background: rgba(5, 6, 10, 0.5);
   padding: 3px;
 }
 
 .short-about img:hover {
   border-color: rgba(207, 211, 218, 0.6);
   box-shadow: 
-    0 0 30px rgba(207, 211, 218, 0.6),
-    0 0 60px rgba(100, 150, 255, 0.4),
+    0 0 35px rgba(207, 211, 218, 0.7),
+    0 0 70px rgba(100, 150, 255, 0.5),
     0 0 0 2px rgba(207, 211, 218, 0.2) inset;
   transform: scale(1.05);
 }
@@ -426,33 +560,40 @@ pre,
 
 .fa-stack:hover {
   transform: translateY(-3px) scale(1.1);
-  filter: drop-shadow(0 0 8px rgba(207, 211, 218, 0.6));
+  filter: drop-shadow(0 0 10px rgba(207, 211, 218, 0.7));
 }
 
 /* 代码块增强 */
 pre code {
-  text-shadow: 0 0 2px rgba(207, 211, 218, 0.3);
+  text-shadow: 0 0 3px rgba(207, 211, 218, 0.4);
 }
 
-/* 滚动条样式 */
+/* 滚动条样式 - 深空主题 */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(10, 11, 13, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgba(207, 211, 218, 0.4), rgba(140, 146, 156, 0.4));
+  background: linear-gradient(180deg, 
+    rgba(100, 150, 255, 0.5), 
+    rgba(207, 211, 218, 0.4)
+  );
   border-radius: 5px;
-  border: 2px solid rgba(10, 11, 13, 0.5);
+  border: 2px solid rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 10px rgba(100, 150, 255, 0.3);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, rgba(207, 211, 218, 0.6), rgba(140, 146, 156, 0.6));
-  box-shadow: 0 0 10px rgba(207, 211, 218, 0.4);
+  background: linear-gradient(180deg, 
+    rgba(100, 150, 255, 0.7), 
+    rgba(207, 211, 218, 0.6)
+  );
+  box-shadow: 0 0 15px rgba(100, 150, 255, 0.5);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -468,6 +609,11 @@ pre code {
   
   .post-container::before,
   .sidebar-container::before {
+    animation: none;
+  }
+  
+  .intro-header::before,
+  .intro-header::after {
     animation: none;
   }
 }
