@@ -40,9 +40,9 @@ layout: default
                         {% for category in site.categories %}
                         {% assign category_posts = site.posts | where: "category", category.slug %}
                         <li class="category-item">
-                            <a href="{{ site.baseurl }}/categories/{{ category.slug }}" class="category-link-item">
-                                <span class="category-name">{{ category.name }}</span>
-                                <span class="category-count">({{ category_posts.size }})</span>
+                            <a href="{{ site.baseurl }}/categories/{{ category.slug }}" class="category-link-item" style="color: #ffffff !important;">
+                                <span class="category-name" style="color: #ffffff !important; display: inline-block !important; visibility: visible !important; opacity: 1 !important; font-size: 14px !important; font-weight: 500 !important;">{{ category.name }}</span>
+                                <span class="category-count" style="color: rgba(255, 255, 255, 0.7) !important; display: inline-block !important; visibility: visible !important;">({{ category_posts.size }})</span>
                             </a>
                         </li>
                         {% endfor %}
