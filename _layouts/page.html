@@ -32,23 +32,6 @@ layout: default
                 col-md-10 col-md-offset-1
                 sidebar-container">
 
-                <!-- 分类列表 -->
-                {% if site.categories %}
-                <section class="sidebar-categories">
-                    <h5><a href="{{ site.baseurl }}/categories">分类</a></h5>
-                    <ul class="category-list">
-                        {% for category in site.categories %}
-                        {% assign category_posts = site.posts | where: "category", category.slug %}
-                        <li class="category-item">
-                            <a href="{{ site.baseurl }}/categories/{{ category.slug }}" class="category-link-item" style="color: #ffffff !important;">
-                                <span class="category-name" style="color: #ffffff !important; display: inline-block !important; visibility: visible !important; opacity: 1 !important; font-size: 14px !important; font-weight: 500 !important;">{{ category.name }}</span>
-                                <span class="category-count" style="color: rgba(255, 255, 255, 0.7) !important; display: inline-block !important; visibility: visible !important;">({{ category_posts.size }})</span>
-                            </a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </section>
-                {% endif %}
 
                 <!-- 文章导航栏 -->
                 <section>
@@ -126,10 +109,6 @@ layout: default
                         <div class="stat-item">
                             <span class="stat-number">{{ site.posts.size }}</span>
                             <span class="stat-label">文章</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">{% if site.categories %}{{ site.categories.size }}{% else %}0{% endif %}</span>
-                            <span class="stat-label">分类</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-number">{{ site.tags.size }}</span>

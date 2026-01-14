@@ -27,17 +27,6 @@ description: "Thinking will not overcome fear but action will."
         </a>
         <p class="post-meta">
             <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
-            {% if post.category %}
-            <span class="post-category">
-                <a href="{{ site.baseurl }}/categories/{{ post.category }}">
-                    {% for cat in site.categories %}
-                        {% if cat.slug == post.category %}
-                            {{ cat.name }}
-                        {% endif %}
-                    {% endfor %}
-                </a>
-            </span>
-            {% endif %}
             {% if post.tags.size > 0 %}
             <span class="post-tags">
                 {% for tag in post.tags %}
@@ -74,17 +63,6 @@ description: "Thinking will not overcome fear but action will."
     </a>
     <p class="post-meta">
         <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
-        {% if post.category %}
-        <span class="post-category">
-            <a href="{{ site.baseurl }}/categories/{{ post.category }}">
-                {% for cat in site.categories %}
-                    {% if cat.slug == post.category %}
-                        {{ cat.name }}
-                    {% endif %}
-                {% endfor %}
-            </a>
-        </span>
-        {% endif %}
         {% if post.tags.size > 0 %}
         <span class="post-tags">
             {% for tag in post.tags %}

@@ -22,11 +22,8 @@
                     <li>
                         <a href="{{ site.baseurl }}/">博客</a>
                     </li>
-                    <li>
-                        <a href="{{ site.baseurl }}/categories">分类</a>
-                    </li>
                     {% for page in site.pages %}
-                        {% if page.title and page.layout != 'category' %}
+                        {% if page.title %}
                             {% unless page.url contains '/categories/' %}
                             <li>
                                 <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
