@@ -18,12 +18,7 @@
 body {
   position: relative;
   color: var(--text-main);
-  background:
-    radial-gradient(circle at 14% 18%, rgba(180, 190, 205, 0.14), transparent 52%),
-    radial-gradient(circle at 82% 10%, rgba(130, 136, 148, 0.12), transparent 58%),
-    radial-gradient(circle at 24% 85%, rgba(96, 100, 110, 0.16), transparent 52%),
-    radial-gradient(circle at 70% 70%, rgba(22, 24, 30, 0.6), transparent 60%),
-    linear-gradient(180deg, #050506 0%, var(--bg-deep) 40%, #0d0f13 100%);
+  background-color: #050506;
   font-family: "Space Grotesk", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.2px;
 }
@@ -44,18 +39,12 @@ body::before {
     radial-gradient(rgba(160, 166, 176, 0.2) 1px, transparent 1px);
   background-size: 3px 3px, 5px 5px, 7px 7px;
   background-position: 0 0, 30px 40px, 80px 120px;
-  opacity: 0.5;
+  opacity: 0.28;
   animation: twinkle 9s ease-in-out infinite;
 }
 
 body::after {
-  background:
-    radial-gradient(circle at 50% 15%, rgba(207, 211, 218, 0.2), transparent 58%),
-    radial-gradient(circle at 80% 70%, rgba(160, 166, 176, 0.18), transparent 62%),
-    radial-gradient(circle at 20% 65%, rgba(120, 126, 136, 0.16), transparent 60%);
-  mix-blend-mode: screen;
-  opacity: 0.7;
-  animation: nebula-drift 28s linear infinite;
+  display: none;
 }
 
 body > * {
