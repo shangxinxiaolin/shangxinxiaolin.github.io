@@ -2,7 +2,7 @@
 layout:     post                      # 使用的布局（不需要改）
 title:      日概要                    # 标题
 subtitle:   周记                      # 副标题
-date:       2025-01-11 10:00:00 +0800 # 时间（标准格式）
+date:       2026-01-11 10:00:00 +0800 # 时间（标准格式）
 author:     XL                        # 作者
 header-img: img/post-bg-universe.jpg  # 这篇文章标题背景图片
 catalog:    true                      # 是否归档
