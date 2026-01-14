@@ -1,0 +1,59 @@
+---
+layout: default
+---
+
+<!-- Page Header -->
+<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
+                    <span class="subheading">{{ page.description }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <!-- 分类文章列表 -->
+            {% assign category_posts = site.posts | where: "category", page.category | sort: "date" | reverse %}
+            {% if category_posts.size > 0 %}
+                <p class="category-info">共找到 {{ category_posts.size }} 篇文章</p>
+                {% for post in category_posts %}
+                <div class="post-preview">
+                    <a href="{{ post.url | prepend: site.baseurl }}">
+                        <h2 class="post-title">
+                            {% if post.top %}
+                            <span class="pinned-badge">置顶</span>
+                            {% endif %}
+                            {{ post.title }}
+                        </h2>
+                        {% if post.subtitle %}
+                        <h3 class="post-subtitle">
+                            {{ post.subtitle }}
+                        </h3>
+                        {% endif %}
+                        <div class="post-content-preview">
+                            {{ post.content | strip_html | truncate:200 }}
+                        </div>
+                    </a>
+                    <p class="post-meta">
+                        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+                    </p>
+                </div>
+                <hr>
+                {% endfor %}
+            {% else %}
+                <div class="no-posts">
+                    <p>该分类下暂无文章</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+

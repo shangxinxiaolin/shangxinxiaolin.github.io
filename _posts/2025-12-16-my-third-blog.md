@@ -6,6 +6,7 @@ date:       2025-12-16 10:00:00 +0800 # 时间（修正语法）
 author:     XL                        # 作者
 header-img: img/post-bg-universe.jpg  # 这篇文章标题背景图片
 catalog:    true                      # 是否归档
+category:   study                     # 分类（tech/life/study/other）
 tags:                                 # 标签
     - 生活
     - 大一
