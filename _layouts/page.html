@@ -117,25 +117,6 @@ layout: default
                     </div>
                 </section>
 
-                <!-- 分类列表 -->
-                {% if site.categories %}
-                <section class="sidebar-categories">
-                    <hr class="hidden-sm hidden-xs">
-                    <h5><a href="{{ site.baseurl }}/categories">分类</a></h5>
-                    <ul class="category-list">
-                        {% for category in site.categories %}
-                        {% assign category_posts = site.posts | where: "category", category.slug %}
-                        <li class="category-item">
-                            <a href="{{ site.baseurl }}/categories/{{ category.slug }}" class="category-link-item">
-                                <span class="category-name">{{ category.name }}</span>
-                                <span class="category-count">({{ category_posts.size }})</span>
-                            </a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </section>
-                {% endif %}
-
                 <!-- 文章导航栏 -->
                 <section>
                     <hr class="hidden-sm hidden-xs">
