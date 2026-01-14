@@ -1464,17 +1464,36 @@ input:focus, textarea:focus, select:focus {
 
 .category-card a {
   text-decoration: none;
-  color: inherit;
+  color: #ffffff !important;
   display: block;
 }
 
+/* 确保分类卡片内的所有文字都是白色 */
+.category-card a *,
+.category-card a h3,
+.category-card a p,
+.category-card a span {
+  color: #ffffff !important;
+}
+
+/* 分类卡片中的分类名称 - 最高优先级 */
+.category-card h3.category-name,
+.category-card .category-name,
+.categories-grid .category-card .category-name,
+.categories-grid .category-card h3,
 .category-name {
-  color: #ffffff;
-  font-size: 24px;
-  font-weight: 700;
-  margin: 0 0 10px 0;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  color: #ffffff !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  margin: 0 0 10px 0 !important;
+  padding: 0 !important;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5) !important;
   transition: all 0.3s ease;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  line-height: 1.4 !important;
+  text-align: left !important;
 }
 
 .category-card:hover .category-name {
@@ -1483,22 +1502,28 @@ input:focus, textarea:focus, select:focus {
     0 0 25px rgba(255, 255, 255, 0.3);
 }
 
+.category-card .category-description,
 .category-description {
-  color: var(--text-muted);
-  font-size: 14px;
-  margin: 10px 0;
-  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 14px !important;
+  margin: 10px 0 !important;
+  line-height: 1.6 !important;
+  display: block !important;
+  visibility: visible !important;
 }
 
+.category-card .category-count,
 .category-count {
-  display: inline-block;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 12px;
-  margin-top: 15px;
-  padding: 5px 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: inline-block !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 12px !important;
+  margin-top: 15px !important;
+  padding: 5px 12px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 15px !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .category-info {
